@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 67 | Scripts: 7 | Modules: 0 | Tags: 0
+-- Instances: 68 | Scripts: 7 | Modules: 0 | Tags: 0
 local G2L = {};
 
 -- StarterGui.AstralHub
@@ -20,7 +20,7 @@ G2L["1"]["ResetOnSpawn"] = false;
 -- StarterGui.AstralHub.CanvasGroup
 G2L["2"] = Instance.new("CanvasGroup", G2L["1"]);
 G2L["2"]["BorderSizePixel"] = 0;
-G2L["2"]["BackgroundColor3"] = Color3.fromRGB(148, 134, 255);
+G2L["2"]["BackgroundColor3"] = Color3.fromRGB(138, 54, 255);
 G2L["2"]["AnchorPoint"] = Vector2.new(0.5, 0.5);
 G2L["2"]["Size"] = UDim2.new(0.25628, 0, 0.45648, 0);
 G2L["2"]["Position"] = UDim2.new(0.76912, 0, 0.48329, 0);
@@ -35,10 +35,11 @@ G2L["3"]["CornerRadius"] = UDim.new(0.05, 0);
 -- StarterGui.AstralHub.CanvasGroup.TopBar
 G2L["4"] = Instance.new("CanvasGroup", G2L["2"]);
 G2L["4"]["BorderSizePixel"] = 0;
-G2L["4"]["BackgroundColor3"] = Color3.fromRGB(89, 81, 210);
+G2L["4"]["BackgroundColor3"] = Color3.fromRGB(84, 22, 160);
 G2L["4"]["Size"] = UDim2.new(1, 0, 0.08685, 0);
 G2L["4"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["4"]["Name"] = [[TopBar]];
+G2L["4"]["BackgroundTransparency"] = 0.25;
 
 
 -- StarterGui.AstralHub.CanvasGroup.TopBar.CloseButton
@@ -78,14 +79,13 @@ G2L["7"]["Position"] = UDim2.new(0.12676, 0, 0.16216, 0);
 -- StarterGui.AstralHub.CanvasGroup.TopBar.TextLabel.UIStroke
 G2L["8"] = Instance.new("UIStroke", G2L["7"]);
 G2L["8"]["Thickness"] = 2;
-G2L["8"]["Color"] = Color3.fromRGB(86, 96, 228);
+G2L["8"]["Color"] = Color3.fromRGB(134, 58, 228);
 
 
 -- StarterGui.AstralHub.CanvasGroup.TopBar.ImageLabel
 G2L["9"] = Instance.new("ImageLabel", G2L["4"]);
 G2L["9"]["BorderSizePixel"] = 0;
 G2L["9"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
-G2L["9"]["ImageColor3"] = Color3.fromRGB(186, 202, 255);
 G2L["9"]["Image"] = [[rbxassetid://111907488173054]];
 G2L["9"]["Size"] = UDim2.new(0.08732, 0, 0.83784, 0);
 G2L["9"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
@@ -570,7 +570,7 @@ G2L["3e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["3e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["3e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
 G2L["3e"]["BackgroundTransparency"] = 0.5;
-G2L["3e"]["Size"] = UDim2.new(0, 57, 0, 20);
+G2L["3e"]["Size"] = UDim2.new(0.19005, 0, 0.64964, 0);
 G2L["3e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["3e"]["Text"] = [[Boost]];
 G2L["3e"]["Position"] = UDim2.new(0.7851, 0, 0.15555, 0);
@@ -602,6 +602,20 @@ G2L["42"]["Name"] = [[main]];
 -- StarterGui.AstralHub.CanvasGroup.drag
 G2L["43"] = Instance.new("LocalScript", G2L["2"]);
 G2L["43"]["Name"] = [[drag]];
+
+
+-- StarterGui.AstralHub.CanvasGroup.ImageLabel
+G2L["44"] = Instance.new("ImageLabel", G2L["2"]);
+G2L["44"]["ZIndex"] = 0;
+G2L["44"]["BorderSizePixel"] = 0;
+G2L["44"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["44"]["ImageTransparency"] = 0.25;
+G2L["44"]["Image"] = [[rbxassetid://112982629327743]];
+G2L["44"]["Size"] = UDim2.new(1.54754, 0, 1.18974, 0);
+G2L["44"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["44"]["BackgroundTransparency"] = 1;
+G2L["44"]["Rotation"] = 25;
+G2L["44"]["Position"] = UDim2.new(-0.35325, 0, -0.09261, 0);
 
 
 -- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.OSpeed.toggle.LocalScript
