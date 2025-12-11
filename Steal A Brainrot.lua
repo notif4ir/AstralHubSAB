@@ -7,7 +7,7 @@
  Y888P  ~Y8888P' Y888888P      888888D      Y88888P ~Y8888P' YP   YP  CONVERTER 
 ]=]
 
--- Instances: 63 | Scripts: 6 | Modules: 0 | Tags: 0
+-- Instances: 67 | Scripts: 7 | Modules: 0 | Tags: 0
 local G2L = {};
 
 -- StarterGui.AstralHub
@@ -532,27 +532,76 @@ G2L["3b"]["Text"] = [[No Animations]];
 G2L["3b"]["Position"] = UDim2.new(0.04253, 0, 0.15556, 0);
 
 
+-- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.FPSBoost
+G2L["3c"] = Instance.new("Frame", G2L["16"]);
+G2L["3c"]["BorderSizePixel"] = 0;
+G2L["3c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3c"]["Size"] = UDim2.new(0.97931, 0, 0.05498, 0);
+G2L["3c"]["Position"] = UDim2.new(0, 0, 0.11597, 0);
+G2L["3c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3c"]["Name"] = [[FPSBoost]];
+G2L["3c"]["BackgroundTransparency"] = 0.9;
+
+
+-- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.FPSBoost.TextLabel
+G2L["3d"] = Instance.new("TextLabel", G2L["3c"]);
+G2L["3d"]["TextWrapped"] = true;
+G2L["3d"]["BorderSizePixel"] = 0;
+G2L["3d"]["TextSize"] = 14;
+G2L["3d"]["TextXAlignment"] = Enum.TextXAlignment.Left;
+G2L["3d"]["TextScaled"] = true;
+G2L["3d"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3d"]["FontFace"] = Font.new([[rbxasset://fonts/families/Nunito.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
+G2L["3d"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3d"]["BackgroundTransparency"] = 1;
+G2L["3d"]["Size"] = UDim2.new(0.73591, 0, 0.65854, 0);
+G2L["3d"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3d"]["Text"] = [[FPS Boost (Optimization)]];
+G2L["3d"]["Position"] = UDim2.new(0.04253, 0, 0.15556, 0);
+
+
+-- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.FPSBoost.TextButton
+G2L["3e"] = Instance.new("TextButton", G2L["3c"]);
+G2L["3e"]["TextWrapped"] = true;
+G2L["3e"]["BorderSizePixel"] = 0;
+G2L["3e"]["TextSize"] = 14;
+G2L["3e"]["TextScaled"] = true;
+G2L["3e"]["TextColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3e"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
+G2L["3e"]["FontFace"] = Font.new([[rbxasset://fonts/families/SourceSansPro.json]], Enum.FontWeight.Bold, Enum.FontStyle.Normal);
+G2L["3e"]["BackgroundTransparency"] = 0.5;
+G2L["3e"]["Size"] = UDim2.new(0, 57, 0, 20);
+G2L["3e"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
+G2L["3e"]["Text"] = [[Boost]];
+G2L["3e"]["Position"] = UDim2.new(0.7851, 0, 0.15555, 0);
+
+
+-- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.FPSBoost.TextButton.LocalScript
+G2L["3f"] = Instance.new("LocalScript", G2L["3e"]);
+
+
+
 -- StarterGui.AstralHub.CanvasGroup.CanvasGroup.UICorner
-G2L["3c"] = Instance.new("UICorner", G2L["14"]);
-G2L["3c"]["CornerRadius"] = UDim.new(0.033, 0);
+G2L["40"] = Instance.new("UICorner", G2L["14"]);
+G2L["40"]["CornerRadius"] = UDim.new(0.033, 0);
 
 
 -- StarterGui.AstralHub.CanvasGroup.CanvasGroup.UIStroke
-G2L["3d"] = Instance.new("UIStroke", G2L["14"]);
-G2L["3d"]["Transparency"] = 0.75;
-G2L["3d"]["Thickness"] = 2;
-G2L["3d"]["Color"] = Color3.fromRGB(54, 54, 54);
-G2L["3d"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
+G2L["41"] = Instance.new("UIStroke", G2L["14"]);
+G2L["41"]["Transparency"] = 0.75;
+G2L["41"]["Thickness"] = 2;
+G2L["41"]["Color"] = Color3.fromRGB(54, 54, 54);
+G2L["41"]["ApplyStrokeMode"] = Enum.ApplyStrokeMode.Border;
 
 
 -- StarterGui.AstralHub.CanvasGroup.main
-G2L["3e"] = Instance.new("LocalScript", G2L["2"]);
-G2L["3e"]["Name"] = [[main]];
+G2L["42"] = Instance.new("LocalScript", G2L["2"]);
+G2L["42"]["Name"] = [[main]];
 
 
 -- StarterGui.AstralHub.CanvasGroup.drag
-G2L["3f"] = Instance.new("LocalScript", G2L["2"]);
-G2L["3f"]["Name"] = [[drag]];
+G2L["43"] = Instance.new("LocalScript", G2L["2"]);
+G2L["43"]["Name"] = [[drag]];
 
 
 -- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.OSpeed.toggle.LocalScript
@@ -691,9 +740,67 @@ local script = G2L["35"];
 	updateGlobal()
 end;
 task.spawn(C_35);
+-- StarterGui.AstralHub.CanvasGroup.CanvasGroup.ScrollingFrame.Main.FPSBoost.TextButton.LocalScript
+local function C_3f()
+local script = G2L["3f"];
+	local function Optimize()
+		local players = game:GetService("Players")
+		local rs = game:GetService("RunService")
+	
+		local function stopAnim(obj)
+			if obj:IsA("Animator") or obj:IsA("AnimationController") then
+				for _, t in ipairs(obj:GetPlayingAnimationTracks()) do
+					t:Stop()
+				end
+				obj.AnimationPlayed:Connect(function(track)
+					track:Stop()
+				end)
+			end
+			if obj:IsA("Humanoid") then
+				for _, t in ipairs(obj:GetPlayingAnimationTracks()) do
+					t:Stop()
+				end
+				obj.AnimationPlayed:Connect(function(track)
+					track:Stop()
+				end)
+			end
+		end
+	
+		local function fixMaterials(obj)
+			if obj:IsA("BasePart") then
+				obj.Material = Enum.Material.SmoothPlastic
+				pcall(function() obj.MaterialVariant = "" end)
+			end
+		end
+	
+		local function scan(a)
+			for _, v in ipairs(a:GetDescendants()) do
+				stopAnim(v)
+				fixMaterials(v)
+			end
+		end
+	
+		scan(game)
+	
+		game.DescendantAdded:Connect(function(v)
+			stopAnim(v)
+			fixMaterials(v)
+		end)
+	
+		settings().Rendering.QualityLevel = Enum.QualityLevel.Level01
+		workspace.StreamingEnabled = true
+		workspace.InterpolationThrottling = Enum.InterpolationThrottlingMode.Enabled
+		players.CharacterAutoLoads = true
+	end
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		Optimize()
+	end)
+end;
+task.spawn(C_3f);
 -- StarterGui.AstralHub.CanvasGroup.main
-local function C_3e()
-local script = G2L["3e"];
+local function C_42()
+local script = G2L["42"];
 	_G.VortexHub = _G.VortexHub or {}
 	
 	repeat wait() until game:IsLoaded()
@@ -877,10 +984,10 @@ local script = G2L["3e"];
 		end
 	end)
 end;
-task.spawn(C_3e);
+task.spawn(C_42);
 -- StarterGui.AstralHub.CanvasGroup.drag
-local function C_3f()
-local script = G2L["3f"];
+local function C_43()
+local script = G2L["43"];
 	local frame = script.Parent
 	local topbar = frame.TopBar
 	local uis = game:GetService("UserInputService")
@@ -942,6 +1049,6 @@ local script = G2L["3f"];
 		frame.Position = UDim2.new(s.X, 0, s.Y, 0)
 	end)
 end;
-task.spawn(C_3f);
+task.spawn(C_43);
 
 return G2L["1"], require;
