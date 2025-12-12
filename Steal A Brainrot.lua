@@ -1268,86 +1268,49 @@ local script = G2L["3c"];
 	
 		local commands = {"rocket","ragdoll","jail","inverse","balloon","morph","tiny","jumpscare"}
 	
-		local colors = {
-			Color3.fromRGB(255,0,0),
-			Color3.fromRGB(0,255,0),
-			Color3.fromRGB(0,0,255),
-			Color3.fromRGB(255,255,0),
-			Color3.fromRGB(255,0,255),
-			Color3.fromRGB(0,255,255),
-			Color3.fromRGB(255,128,0),
-			Color3.fromRGB(128,0,255),
-			Color3.fromRGB(0,128,255),
-			Color3.fromRGB(128,255,0)
-		}
+		local function getTarget()
+			local cam = workspace.CurrentCamera
+			local origin = cam.CFrame.Position
+			local unit = cam:ScreenPointToRay(mouse.X, mouse.Y).Direction
 	
-		local function makeHighlight(p)
-			if p.Character then
-				local old = p.Character:FindFirstChildOfClass("Highlight")
-				if old then old:Destroy() end
-				local h = Instance.new("Highlight")
-				h.FillTransparency = 0.5
-				h.OutlineTransparency = 0.5
-				local c = colors[(p.UserId % #colors) + 1]
-				h.FillColor = c
-				h.OutlineColor = c
-				h.Adornee = p.Character
-				h.Parent = p.Character
+			local list = {}
+			for _, p in ipairs(players:GetPlayers()) do
+				if p ~= localPlayer and p.Character then
+					table.insert(list, p.Character)
+				end
 			end
+	
+			local params = RaycastParams.new()
+			params.FilterType = Enum.RaycastFilterType.Include
+			params.FilterDescendantsInstances = list
+	
+			local result = workspace:Raycast(origin, unit * 9999, params)
+			if not result then return nil end
+	
+			local char = result.Instance:FindFirstAncestorOfClass("Model")
+			if not char then return nil end
+	
+			return players:GetPlayerFromCharacter(char)
 		end
 	
-		for _, p in ipairs(players:GetPlayers()) do
-			makeHighlight(p)
-		end
+		local conn
+		conn = mouse.Button1Down:Connect(function()
+			local t = getTarget()
+			if not t then return end
 	
-		players.PlayerAdded:Connect(function(p)
-			p.CharacterAdded:Connect(function()
-				makeHighlight(p)
-			end)
-		end)
-	
-		local function clearAllHighlights()
 			for _, p in ipairs(players:GetPlayers()) do
 				if p.Character then
 					local h = p.Character:FindFirstChildOfClass("Highlight")
 					if h then h:Destroy() end
 				end
 			end
-		end
 	
-		local function getExactTarget()
-			local cam = workspace.CurrentCamera
-			local mousePos = Vector2.new(mouse.X, mouse.Y)
-			local unit = cam:ScreenPointToRay(mousePos.X, mousePos.Y).Direction
-			local origin = cam.CFrame.Position
-			local best = nil
-			local bestDist = math.huge
-			for _, p in ipairs(players:GetPlayers()) do
-				if p ~= localPlayer and p.Character and p.Character:FindFirstChild("HumanoidRootPart") then
-					local hrp = p.Character.HumanoidRootPart
-					local screen = cam:WorldToScreenPoint(hrp.Position)
-					local dist = (Vector2.new(screen.X, screen.Y) - mousePos).Magnitude
-					if dist < bestDist and dist < 30 then
-						bestDist = dist
-						best = p
-					end
-				end
-			end
-			return best
-		end
-	
-		local selected = false
-	
-		mouse.Button1Down:Connect(function()
-			if selected then return end
-			local t = getExactTarget()
-			if not t then return end
-			selected = true
-			clearAllHighlights()
 			for _, cmd in ipairs(commands) do
 				remote:FireServer(localPlayer, cmd)
 				task.wait(0.1)
 			end
+	
+			conn:Disconnect()
 		end)
 	end)
 end;
